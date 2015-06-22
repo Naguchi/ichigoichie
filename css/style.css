@@ -1,0 +1,68 @@
+html {
+	height: 100%
+}
+
+body {
+	text-align :center;
+	/*background-image: url("../ichigo_head.png");*/
+	background-repeat: no-repeat;
+	background-position: bottom;
+}
+
+#wrap {
+	width: 100%;
+	margin: 0 auto;
+	text-align: left;
+	border: solid 1px #333;
+}
+
+#head {
+	text-align: center;
+	padding: 10px;
+	border-bottom: solid 1px #333;
+}
+
+#alert {
+	text-align: center;
+	padding: 10px;
+	border-bottom: solid 1px #333;
+}
+
+#modernizr {
+	text-align: center;
+	padding: 10px;
+	border-bottom: solid 1px #333;
+}
+
+#friends {
+	text-align: center;
+	padding: 10px;
+	border-bottom: solid 1px #333;
+}
+
+.tableCenter {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.post {
+	padding: 10px;
+}
+
+#foot {
+	border-top: solid 1px #333;
+	text-align: center;
+	padding: 10px;
+}
+
+.posCenter {
+	text-align: center;
+}
+
+.posRight {
+	text-align: right;
+}
+
+.title {
+	font-size: 300%;
+}
