@@ -1,26 +1,6 @@
-<?php
-function listAlerts ($last_meeting, $alert_day) {
-// SELECT result
-//	$rows = $mysql->queryAll( "SELECT * FROM ichie" );
-	$friend_name = "なぐち";
-	$last_meeting = "2014-09-07";
-	$alert_day = "5";
-echo $friend_name;
-//echo $dsn;
-
-// non_meeting Check
-	$last_meeting_ut = strtotime($last_meeting);
-	$today_ut = strtotime( date('Y-m-d') );
-	$non_meeting = ($today_ut - $last_meeting_ut) / (60 * 60 * 24);
-
-	print "<ul>";
-	if ($alert_day <= $non_meeting ){
-		print "<li>";
-		displayAlert($friend_name, $non_meeting);
-		print "</li>";
-	}
-	print "</ul>";
-	print "\n";
-}
-
-?>
+<div class="posCenter"><h4>■アラート■</h4></div>
+<ul>
+<?php foreach(get_non_meeting_alert_list() as $alert_info) { ?>
+	<li><?php echo $alert_info["name"]; ?>さんと <?php echo $alert_info["alert_day"]; ?>日間 会っていません。</li>
+<?php } ?>
+</ul>

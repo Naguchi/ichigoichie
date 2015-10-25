@@ -1,13 +1,13 @@
 <?php
-print "<ul>";
+echo "<ul>";
 if (class_exists('MDB2')) {
-	print "<li>";
-	print "MDB2 is found";
-	print "</li>";
+	echo "<li>";
+	echo "MDB2 is found";
+	echo "</li>";
 } else {
-	print "<li>";
-	print "MDB2 is not found...";
-	print "</li>";
+	echo "<li>";
+	echo "MDB2 is not found...";
+	echo "</li>";
 }
-print "</ul>";
+echo "</ul>";
 ?>
