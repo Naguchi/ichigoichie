@@ -1,7 +1,8 @@
 <?php
-
-$user = 'root';
-$password = 'root';
+//$user = 'root';
+//$password = 'root';
+$user = 'naguchi';
+$password = 'ickikazuki';
 $db = 'ichigo';
 $host = 'localhost';
 $port = 3306;
@@ -22,22 +23,22 @@ if(!$link) {
 mysqli_set_charset($link, "UTF8");
 
 /*
+include_once 'MDB2.php';
 $db_type = 'mysql';
 $user = 'naguchi';
 $password = 'ickikazuki';
 $server = 'localhost';
 $db_name = 'ichigo';
 $dsn = $db_type.'://'.$user.':'.$password.'@'.$server.'/'.$db_name;
-*/
 
 
-//$mysql = MDB2::connect( $dsn );
+$mysql = MDB2::connect( $dsn );
 
-//if (PEAR::isError($mysql)){
-//	die("<p>{$mysql->getMessage()}</p>");
-//}
+if (PEAR::isError($mysql)){
+	die("<p>{$mysql->getMessage()}</p>");
+}
 
 	
 #$row = mysqli_fetch_array($result);
-
+*/
 ?>

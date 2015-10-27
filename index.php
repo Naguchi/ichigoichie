@@ -12,7 +12,6 @@
 
 <body>
 <?php
-//	include_once 'MDB2.php';
 	include( "./php/db.php" );
 	include( "./php/function.php" );
 ?>
