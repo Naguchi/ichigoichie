@@ -20,7 +20,7 @@ WHERE (`display_flag` = 1) AND (`alert_day` != 0) AND (DATE_ADD(`last_meeting`, 
 function get_friend_list() {
 	global $link;
 	$sql = "
-SELECT * FROM `ichie` WHERE `display_flag` != 0 ORDER BY `last_meeting` DESC
+SELECT * FROM `ichie` WHERE `display_flag` != 0 ORDER BY `last_meeting` ASC
 	";
 	$result = mysqli_query($link, $sql);
 
@@ -31,5 +31,21 @@ SELECT * FROM `ichie` WHERE `display_flag` != 0 ORDER BY `last_meeting` DESC
 
 	return $friend_list;
 }
-?>
 
+function day_diff($date1, $date2) {
+
+    // 日付をUNIXタイムスタンプに変換
+    $timestamp1 = strtotime($date1);
+    $timestamp2 = strtotime($date2);
+
+    // 何秒離れているかを計算
+    $seconddiff = abs($timestamp2 - $timestamp1);
+
+    // 日数に変換
+    $daydiff = $seconddiff / (60 * 60 * 24);
+
+    // 戻り値
+    return $daydiff;
+}
+
+?>
