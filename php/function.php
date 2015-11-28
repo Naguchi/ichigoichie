@@ -48,4 +48,14 @@ function day_diff($date1, $date2) {
     return $daydiff;
 }
 
+function add_friend($name, $last_meeting, $alert_day) {
+	global $link;
+	$sql = "
+INSERT INTO `ichie` (`name`, `last_meeting`, `alert_day`)
+VALUES ($name, $last_meeting, $alert_day)
+	";
+	$result = mysqli_query($link, $sql);
+
+	return $result;
+}
 ?>

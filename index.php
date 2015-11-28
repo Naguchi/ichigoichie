@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<title>一期一会</title>
 	<link rel="stylesheet" type="text/css" media="screen" href="./css/style.css" />
-	<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	<script src="./js/jquery-2.1.4.js"></script>
 	<script src="./js/webStrage.js"></script>
 	<script src="./js/modernizr.min.js"></script>
 </head>
@@ -33,7 +33,8 @@
 -->
 
 <section id="friends">
-	<?php include( "./php/friend.php" ); ?>
+	<?php //include( "./php/add_friend.php" ); ?>
+	<?php include( "./php/friends.php" ); ?>
 </section>
 
 
