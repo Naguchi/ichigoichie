@@ -20,9 +20,11 @@
 <div id="wrap">
 <header id="head"><span class="title">一期一会</span></header>
 
+<?php if (get_non_meeting_alert_count()) { ?>
 <section id="alert">
 	<?php include( "./php/alert.php" ); ?>
 </section>
+<?php } ?>
 
 <!--
 <aside id="modernizr">

@@ -17,10 +17,28 @@ WHERE (`display_flag` = 1) AND (`alert_day` != 0) AND (DATE_ADD(`last_meeting`, 
 	return $non_meeting_alert_list;
 }
 
+function get_non_meeting_alert_count() {
+	global $link;
+	$sql = "
+SELECT `name`, `last_meeting`, `alert_day`
+FROM `ichie`
+WHERE (`display_flag` = 1) 
+  AND (`alert_day` != 0) 
+  AND (DATE_ADD(`last_meeting`, INTERVAL `alert_day` DAY) <= NOW())
+	";
+	$result = mysqli_query($link, $sql);
+	$non_meeting_alert_count = mysqli_num_rows($result);
+
+	return $non_meeting_alert_count;
+}
+
 function get_friend_list() {
 	global $link;
 	$sql = "
-SELECT * FROM `ichie` WHERE `display_flag` != 0 ORDER BY `last_meeting` ASC
+SELECT *, (DATEDIFF(NOW(), `last_meeting`) / `alert_day`) AS 'priority'
+FROM `ichie`
+WHERE `display_flag` != 0
+ORDER BY `priority` DESC
 	";
 	$result = mysqli_query($link, $sql);
 
@@ -50,12 +68,12 @@ function day_diff($date1, $date2) {
 
 function add_friend($name, $last_meeting, $alert_day) {
 	global $link;
-	$sql = "
-INSERT INTO `ichie` (`name`, `last_meeting`, `alert_day`)
-VALUES ($name, $last_meeting, $alert_day)
-	";
-	$result = mysqli_query($link, $sql);
+	$sql = " INSERT INTO `ichie` (`name`, `last_meeting`, `alert_day`) VALUES ('".$name."', '".$last_meeting."', $alert_day) ";
+//	$sql = str_replace(array("\r\n","\n","\r"), '', $sql);
+//	$sql = htmlspecialchars($sql, ENT_QUOTES);
+	mysqli_query($link, $sql);
+echo $sql;
 
-	return $result;
+	return $sql;
 }
 ?>

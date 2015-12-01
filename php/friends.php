@@ -10,13 +10,13 @@ $(function() {
 				last_meeting: $("#friend_last_meeting").val(),
 				alert_day: $("#friend_alert_day").val()
 			},
-		    success: function (data) {
-		        console.dir(data);
+		    success: function (responce) {
+		        console.dir(responce);
 //		        location.reload();
 		    },
-		    error: function (data) {
+		    error: function (responce) {
 		    	console.dir("error");
-		        console.dir(data);
+		        console.dir(responce);
 		    }
 		});
 	});
