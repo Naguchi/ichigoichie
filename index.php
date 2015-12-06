@@ -35,7 +35,6 @@
 -->
 
 <section id="friends">
-	<?php //include( "./php/add_friend.php" ); ?>
 	<?php include( "./php/friends.php" ); ?>
 </section>
 

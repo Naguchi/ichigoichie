@@ -38,7 +38,7 @@ function get_friend_list() {
 SELECT *, (DATEDIFF(NOW(), `last_meeting`) / `alert_day`) AS 'priority'
 FROM `ichie`
 WHERE `display_flag` != 0
-ORDER BY `priority` DESC
+ORDER BY `priority` DESC, name ASC
 	";
 	$result = mysqli_query($link, $sql);
 
@@ -62,18 +62,15 @@ function day_diff($date1, $date2) {
     // 日数に変換
     $daydiff = $seconddiff / (60 * 60 * 24);
 
-    // 戻り値
     return $daydiff;
 }
 
 function add_friend($name, $last_meeting, $alert_day) {
 	global $link;
 	$sql = " INSERT INTO `ichie` (`name`, `last_meeting`, `alert_day`) VALUES ('".$name."', '".$last_meeting."', $alert_day) ";
-//	$sql = str_replace(array("\r\n","\n","\r"), '', $sql);
-//	$sql = htmlspecialchars($sql, ENT_QUOTES);
-	mysqli_query($link, $sql);
-echo $sql;
+	$sql = str_replace(array('\r\n','\n','\r'), '', $sql);
+	$sql = htmlspecialchars($sql);
 
-	return $sql;
+	return mysqli_query($link, $sql);
 }
 ?>

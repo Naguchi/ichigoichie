@@ -73,3 +73,13 @@ table, td, th {
 .title {
 	font-size: 300%;
 }
+
+.len10 {
+	width: 10em;
+	height: auto;
+}
+
+.len8 {
+	width: 8em;
+	height: auto;
+}
