@@ -9,6 +9,7 @@
 	<script src="./js/jquery-2.1.4.js"></script>
 	<script src="./js/webStrage.js"></script>
 	<script src="./js/modernizr.min.js"></script>
+	<script src="./js/friend.js"></script>
 </head>
 
 <body>
@@ -41,7 +42,7 @@
 	<?php include( "./php/friend_add.php" ); ?>
 </section>
 <section class="friends">
-	<?php include( "./php/friends.php" ); ?>
+	<?php include( "./php/friend_list.php" ); ?>
 </section>
 
 

@@ -1,28 +1,3 @@
-<script type="text/javascript">
-$(function() {
-	$("#btn_add_friend").click(function() {
-		if ($("#friend_name").val().length) {
-			$.ajax({
-			    url: 'php/add_friend.php',
-			    type: 'post',
-			    data: {
-					name: $("#friend_name").val(),
-					last_meeting: $("#friend_last_meeting").val(),
-					alert_day: $("#friend_alert_day").val()
-				},
-			    success: function () {
-			        console.dir("success");
-			        location.reload();
-			    },
-			    error: function () {
-			    	console.dir("error");
-			    }
-			});
-		}
-	});
-});
-</script>
-
 <div class="posCenter"><h4>■ともだち追加■</h4></div>
 
 <?php if (preg_match('/Android/', $_SERVER['HTTP_USER_AGENT'])) { ?>

@@ -93,3 +93,19 @@ WHERE id = ${friend_id}
 
 	return $friend_detail_info;
 }
+
+function update_friend($friend_id, array $update_info) {
+	global $link;
+
+	$sql = "
+UPDATE `ichie`
+SET ";
+	if (isset($update_info["last_meeting"])) { $sql .= "
+`last_meeting` = '" . $update_info["last_meeting" ] . "' "; }
+	$sql .= "
+WHERE id = ${friend_id}
+	";
+
+	$result = mysqli_query($link, $sql);
+	return $result;
+}
