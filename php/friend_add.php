@@ -15,9 +15,7 @@
                       			<option value="30">１ヶ月間</option>
                       			<option value="60">２ヶ月間</option>
                       			<option value="180">３ヶ月間</option>
-                      			<option value="7">１週間</option>
-                      			<option value="14">２週間</option>
-                      			<option value="21">３週間</option>
+                      			<option value="365">１年</option>
                      </select></td>
   </tr>
 	<tr>

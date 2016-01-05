@@ -8,6 +8,7 @@ $friend_id = $get["id"];
 <head>
 	<base href="./">
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0" />
 	<title>一期一会</title>
 	<link rel="stylesheet" type="text/css" media="screen" href="./css/style.css" />
 	<script src="./js/jquery-2.1.4.js"></script>
