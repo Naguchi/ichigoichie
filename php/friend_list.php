@@ -9,7 +9,7 @@
 <?php foreach(get_friend_list() as $friend_info) { ?>
 	<tr class="posCenter">
 		<td><input type="button" id="<?php echo $friend_info["id"]; ?>" class="btn_last_mettig_update_friend" value="☆"></td>
-		<td><a href="friend_detail.php?id=<?php echo $friend_info["id"]; ?>"><?php echo $friend_info["name"]; ?></td>
+		<td><a href="./?id=<?php echo $friend_info["id"]; ?>"><?php echo $friend_info["name"]; ?></td>
 		<td><?php echo $friend_info["last_meeting"]; ?></td>
 		<td><?php echo day_diff($friend_info["last_meeting"], date("Y-m-d")); ?>日目</td>
 	</tr>

@@ -80,7 +80,7 @@ function add_friend($name, $last_meeting, $alert_day) {
 function get_friend_detail($friend_id) {
 	global $link;
 	$sql = "
-SELECT *
+SELECT * , (DATEDIFF(NOW(), `last_meeting`) / `alert_day`) AS 'priority'
 FROM `ichie`
 WHERE id = ${friend_id}
 	";
@@ -102,6 +102,12 @@ UPDATE `ichie`
 SET ";
 	if (isset($update_info["last_meeting"])) { $sql .= "
 `last_meeting` = '" . $update_info["last_meeting" ] . "' "; }
+	if (isset($update_info["name"])) { $sql .= "
+, `name` = '" . $update_info["name" ] . "' "; }
+	if (isset($update_info["last_meeting"])) { $sql .= "
+, `alert_day` = '" . $update_info["alert_day" ] . "' "; }
+	if (isset($update_info["display_flag"])) { $sql .= "
+, `display_flag` = '" . $update_info["display_flag" ] . "' "; }
 	$sql .= "
 WHERE id = ${friend_id}
 	";

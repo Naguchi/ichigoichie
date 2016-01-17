@@ -16,6 +16,7 @@
 <?php
 	include( "./php/db.php" );
 	include( "./php/function.php" );
+	$get = $_GET;
 ?>
 
 <div id="wrap">
@@ -26,7 +27,7 @@
 
 <?php if (get_non_meeting_alert_count()) { ?>
 <section id="alert">
-	<?php include( "./php/alert.php" ); ?>
+	<?php include( "./php/friend_alerts.php" ); ?>
 </section>
 <?php } ?>
 
@@ -38,9 +39,16 @@
 </aside>
 -->
 
+<?php if (empty($get["id"])) { ?>
 <section class="friends">
 	<?php include( "./php/friend_add.php" ); ?>
 </section>
+<?php } else { ?>
+<section class="friends">
+	<?php include( "./php/friend_detail.php" ); ?>
+</section>
+<?php } ?>
+
 <section class="friends">
 	<?php include( "./php/friend_list.php" ); ?>
 </section>

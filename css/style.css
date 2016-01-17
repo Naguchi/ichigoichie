@@ -25,26 +25,26 @@ table, td, th {
 
 #head {
 	text-align: center;
-	padding: 10px;
-	border-bottom: solid 1px #333;
+	padding: 6px;
+	border-top: solid 1px #333;
 }
 
 #alert {
 	text-align: center;
-	padding: 10px;
-	border-bottom: solid 1px #333;
+	padding: 6px;
+	border-top: solid 1px #333;
 }
 
 #modernizr {
 	text-align: center;
-	padding: 10px;
-	border-bottom: solid 1px #333;
+	padding: 6px;
+	border-top: solid 1px #333;
 }
 
 .friends {
 	text-align: center;
-	padding: 10px;
-	border-bottom: solid 1px #333;
+	padding: 6px;
+	border-top: solid 1px #333;
 }
 
 .tableCenter {
@@ -53,7 +53,7 @@ table, td, th {
 }
 
 .post {
-	padding: 10px;
+	padding: 6px;
 }
 
 #foot {
