@@ -23,7 +23,7 @@
 <div id="wrap">
 
 <header id="head">
-  <span class="title">一期一会</span>
+	<a href="/ichigoichie/"><span class="title">一期一会</span></a>
 </header>
 
 <?php if (get_non_meeting_alert_count()) { ?>
@@ -36,7 +36,7 @@
 <aside id="modernizr">
 	<div class="posCenter"> <h4>■HTML5機能■</h4> </div>
 	<script type="text/javascript" src="./js/modernizr.js" ></script>
-	<?  //include("./php/listCalledClass.php"); ?>
+	<?	//include("./php/listCalledClass.php"); ?>
 </aside>
 -->
 

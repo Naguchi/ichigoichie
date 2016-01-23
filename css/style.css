@@ -76,12 +76,22 @@ table, td, th {
 	font-size: 300%;
 }
 
-.len10 {
-	width: 10em;
+.len9 {
+	width: 9em;
 	height: auto;
 }
 
-.len8 {
-	width: 8em;
+.len6 {
+	width: 6em;
+	height: auto;
+}
+
+.len3 {
+	width: 3em;
+	height: auto;
+}
+
+.lenauto {
+	width: auto;
 	height: auto;
 }

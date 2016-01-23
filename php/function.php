@@ -1,4 +1,11 @@
 <?php
+function isPhone() {
+	if ( (preg_match('/Android/', USER_AGENT))  || (preg_match('/iPhone/', USER_AGENT)) ) {
+		return true;
+	} else {
+		return false;
+	}
+}
 
 function get_non_meeting_alert_list() {
 	global $link;
