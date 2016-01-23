@@ -5,6 +5,26 @@
 <form>
 <table>
 	<tr>
+		<th>名前</th><td><input autofocus type="text" id="friend_name" class="len9" value="" ></input></td>
+	</tr>
+	<tr>
+		<th>最後に会った日</th><td><input type="date" id="friend_last_meeting" class="len9" value="<?php echo date('Y-m-d'); ?>"></td>
+	</tr>
+	<tr>
+		<th>アラート</th><td><select id="friend_alert_day" class="len9">
+			<option value="30">１ヶ月間</option>
+			<option value="60">２ヶ月間</option>
+			<option value="90">３ヶ月間</option>
+			<option value="180">半年</option>
+			<option value="365">１年</option>
+										 </select></td>
+	</tr>
+	<tr>
+		<th>登録</th><td><input type="button" id="btn_add_friend" class="len9" value="よろしく！！"></td>
+	</tr>
+</table>
+</form>
+
 <?php } else { ?>
 
 <form>
