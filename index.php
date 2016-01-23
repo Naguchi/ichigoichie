@@ -14,6 +14,7 @@
 
 <body>
 <?php
+	include( "./php/ini.php" );
 	include( "./php/db.php" );
 	include( "./php/function.php" );
 	$get = $_GET;

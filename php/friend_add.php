@@ -1,6 +1,6 @@
 <div class="posCenter"><h4>■ともだち追加■</h4></div>
 
-<?php if (preg_match('/Android/', $_SERVER['HTTP_USER_AGENT'])) { ?>
+<?php if (preg_match('/Android/', USER_AGENT)) { ?>
 
 <form>
 <table>
