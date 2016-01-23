@@ -5,8 +5,7 @@ html {
 
 body {
 	text-align :center;
-	background-repeat: no-repeat;
-	background-position: bottom;
+	background: url("/ichigoichie/img/back.gif");
 }
 
 table, td, th {
