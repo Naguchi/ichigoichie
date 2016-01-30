@@ -55,6 +55,14 @@
 </section>
 
 
+<section class="friends">
+<?php if (empty($get["display"])) { ?>
+	<a href="./?display=1">全友達</a>
+<?php } else { ?>
+	<?php include( "./php/friend_display.php" ); ?>
+<?php } ?>
+</section>
+
 <footer id="foot"><a href="./">indexの最後まで読み込んだよ!!!</a></footer>
 
 </div><!-- wrap -->

@@ -41,13 +41,18 @@ WHERE (`display_flag` = 1)
 	return $non_meeting_alert_count;
 }
 
-function get_friend_list() {
+function get_friend_list($display_flag = false) {
 	global $link;
 	$sql = "
 SELECT *, (DATEDIFF(NOW(), `last_meeting`) / `alert_day`) AS 'priority'
-FROM `ichie`
-WHERE `display_flag` != 0
-ORDER BY `priority` DESC, name ASC
+FROM `ichie`";
+if (!$display_flag) {
+	$sql .= "
+ WHERE `display_flag` != 0
+";
+}
+	$sql .= "
+ ORDER BY `priority` DESC, name ASC
 	";
 	$result = mysqli_query($link, $sql);
 
