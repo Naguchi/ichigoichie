@@ -12,6 +12,7 @@ $friend_detail_info = get_friend_detail($friend_id);
 	<tr>
 		<th>ID</th>
 		<td><span class="lenauto"><?php echo $friend_detail_info["id"]; ?></span></td>
+		<input type="hidden" id="friend_id" value="<?php echo $friend_detail_info["id"]; ?>">
 	</tr>
 	<tr>
 		<th>名前</th>
@@ -69,6 +70,7 @@ $friend_detail_info = get_friend_detail($friend_id);
 	</tr>
 	<tr class="posCenter">
 		<td><span><?php echo $friend_detail_info["id"]; ?></span></td>
+		<input type="hidden" id="friend_id" value="<?php echo $friend_detail_info["id"]; ?>">
 		<td><input type="text" id="friend_name" class="len9" value="<?php echo $friend_detail_info["name"]; ?>" ></input></td>
 		<td><input type="date" id="friend_last_meeting" class="len9" value="<?php echo $friend_detail_info["last_meeting"]; ?>" ></input></td>
 		<td><span><?php echo day_diff($friend_detail_info["last_meeting"], date("Y-m-d")); ?>日目</span></td>
