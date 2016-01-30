@@ -22,7 +22,7 @@ $(function() {
 	});
 
 	$(".btn_last_meeting_update_friend").click(function() {
-		var friend_name = $(this).closest("tr").children("td")[1].children.item(0).text;
+		var friend_name = $(this).closest("tr").children("td")[1].children.item(0).children.item(0).text;
 		if (confirm(friend_name + 'さんを更新しますか？')) {
 			var friend_id = $(this).attr("id");
 			var now = new Date();
@@ -39,7 +39,7 @@ $(function() {
 					location.reload();
 				},
 				error: function (msg) {
-					console.dir("error: last metting update error");
+					console.dir("error: last meeting update error");
 					console.dir(msg);
 				}
 			});
