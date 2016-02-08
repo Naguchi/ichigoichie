@@ -75,6 +75,10 @@ table, td, th {
 	font-size: 300%;
 }
 
+#login {
+	text-align: center;
+}
+
 .len9 {
 	width: 9em;
 	height: auto;
@@ -93,4 +97,10 @@ table, td, th {
 .lenauto {
 	width: auto;
 	height: auto;
+}
+
+
+.nolattice {
+	border: solid 0px #333;
+	border-collapse: collapse;
 }

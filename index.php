@@ -1,3 +1,8 @@
+<?php
+	include( "./php/ini.php" );
+	include( "./php/db.php" );
+	include( "./php/function.php" );
+?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -13,18 +18,17 @@
 </head>
 
 <body>
-<?php
-	include( "./php/ini.php" );
-	include( "./php/db.php" );
-	include( "./php/function.php" );
-	$get = $_GET;
-?>
-
 <div id="wrap">
 
 <header id="head">
 	<a href="/ichigoichie/"><span class="title">一期一会</span></a>
 </header>
+
+<?php if (!isLogged()) { ?>
+<section id="login">
+<?php include( "./php/login.php" ); ?>
+</section>
+<?php } else {?>
 
 <?php if (get_non_meeting_alert_count()) { ?>
 <section id="alert">
@@ -63,6 +67,7 @@
 <?php } ?>
 </section>
 
+<?php } // login ?>
 <footer id="foot"><a href="./">indexの最後まで読み込んだよ!!!</a></footer>
 
 </div><!-- wrap -->

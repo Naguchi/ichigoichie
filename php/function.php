@@ -1,4 +1,28 @@
 <?php
+function login_test($login_id, $login_password) {
+	global $link;
+	$sql = "
+SELECT `id`
+FROM `user`
+WHERE `login_id` = '" . $login_id . "'
+  AND `login_password` = '" . $login_password . "'
+	";
+	$result = mysqli_query($link, $sql);
+	$count_row = mysqli_num_rows($result);
+
+	if ($count_row) {
+		$user_id = mysqli_fetch_row($result)["0"];
+		return $user_id;
+	} else {
+		return 0;
+	}
+
+}
+
+function isLogged() {
+	return !empty($_SESSION["id"]);
+}
+
 function isPhone() {
 	if ( (preg_match('/Android/', USER_AGENT))  || (preg_match('/iPhone/', USER_AGENT)) ) {
 		return true;
