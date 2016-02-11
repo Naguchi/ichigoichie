@@ -6,7 +6,7 @@
 		<th>最後に会った日</th>
 		<th>不通期間</th>
 	</tr>
-<?php foreach(get_friend_list() as $friend_info) { ?>
+<?php foreach(get_friend_list($user_id) as $friend_info) { ?>
 	<tr class="posCenter">
 		<td><input type="button" id="<?php echo $friend_info["id"]; ?>" class="btn_last_meeting_update_friend lenauto" value="☆"></td>
 		<td><span class="len9"><a href="./?id=<?php echo $friend_info["id"]; ?>"><?php echo $friend_info["name"]; ?></a></td>

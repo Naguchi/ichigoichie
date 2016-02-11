@@ -6,7 +6,7 @@
 <?php } ?>
 	</tr>
 <?php
-$friend_list = get_friend_list(true);
+$friend_list = get_friend_list($user_id, true);
 $list = 0;
 while ($list <= count($friend_list)) { ?>
 	<tr>

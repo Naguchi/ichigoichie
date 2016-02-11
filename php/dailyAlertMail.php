@@ -2,7 +2,7 @@
 include( "/var/www/ichigoichie/php/db.php" );
 include( "/var/www/ichigoichie/php/function.php" );
 
-$get_non_meeting_alert_list = get_non_meeting_alert_list();
+$get_non_meeting_alert_list = get_non_meeting_alert_list($user_id);
 
 if (!empty($get_non_meeting_alert_list)) {
 	$mail_to = "lucrerakuri@gmail.com";

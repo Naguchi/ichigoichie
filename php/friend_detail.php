@@ -2,7 +2,7 @@
 if (empty($_GET)) exit;
 $get = $_GET;
 $friend_id = $get["id"];
-$friend_detail_info = get_friend_detail($friend_id);
+$friend_detail_info = get_friend_detail($user_id, $friend_id);
 ?>
 <div class="posCenter"><h4>■ともだち詳細■</h4></div>
 

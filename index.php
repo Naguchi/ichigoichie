@@ -24,13 +24,11 @@
 	<a href="/ichigoichie/"><span class="title">一期一会</span></a>
 </header>
 
-<?php if (!isLogged()) { ?>
 <section id="login">
 <?php include( "./php/login.php" ); ?>
 </section>
-<?php } else {?>
 
-<?php if (get_non_meeting_alert_count()) { ?>
+<?php if (get_non_meeting_alert_count($user_id)) { ?>
 <section id="alert">
 	<?php include( "./php/friend_alerts.php" ); ?>
 </section>
@@ -67,10 +65,10 @@
 <?php } ?>
 </section>
 
-<?php } // login ?>
 <footer id="foot"><a href="./">indexの最後まで読み込んだよ!!!</a></footer>
 
 </div><!-- wrap -->
 
+<input id="user_id" type="hidden" value="<?php echo $user_id; ?>">
 </body>
 </html>

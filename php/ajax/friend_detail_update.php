@@ -8,8 +8,7 @@ if (isset($friend["id"])) {
 	$friend_id = $friend["id"];
 	unset($friend["id"]);
 	if (!empty($friend)) {
-		$result = update_friend($friend_id, $friend);
-		echo $result;
+		$result = update_friend($friend["user_id"], $friend_id, $friend);
 		return $result;
 	}
 }

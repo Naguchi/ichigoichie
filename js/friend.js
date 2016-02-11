@@ -6,6 +6,7 @@ $(function() {
 				url: 'php/ajax/friend_add.php',
 				type: 'post',
 				data: {
+					user_id: $("#user_id").val(),
 					name: $("#friend_name").val(),
 					last_meeting: $("#friend_last_meeting").val(),
 					alert_day: $("#friend_alert_day").val()
@@ -24,6 +25,7 @@ $(function() {
 	$(".btn_last_meeting_update_friend").click(function() {
 		var friend_name = $(this).closest("tr").children("td")[1].children.item(0).children.item(0).text;
 		if (confirm(friend_name + 'さんを更新しますか？')) {
+			var user_id = $("#user_id").val();
 			var friend_id = $(this).attr("id");
 			var now = new Date();
 			var last_meeting = (now.getFullYear())+"-"+("0"+(now.getMonth()+1)).slice(-2)+"-"+("0"+(now.getDate())).slice(-2);
@@ -31,6 +33,7 @@ $(function() {
 				url: 'php/ajax/friend_last_meeting_update.php',
 				type: 'post',
 				data: {
+					user_id: user_id,
 					id: friend_id,
 					last_meeting: last_meeting,
 				},
@@ -49,6 +52,7 @@ $(function() {
 	$("#detail_update_friend").click(function() {
 		var name = $("#friend_name").val();
 		if (confirm(name + "さんの情報を更新します。")) {
+			var user_id = $("#user_id").val();
 			var id = $("#friend_id").val();
 			var name = $("#friend_name").val();
 			var last_meeting = $("#friend_last_meeting").val();
@@ -58,6 +62,7 @@ $(function() {
 				url: 'php/ajax/friend_detail_update.php',
 				type: 'post',
 				data: {
+					user_id: user_id,
 					id: id,
 					name: name,
 					last_meeting: last_meeting,

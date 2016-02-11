@@ -14,13 +14,13 @@ WHERE `login_id` = '" . $login_id . "'
 		$user_id = mysqli_fetch_row($result)["0"];
 		return $user_id;
 	} else {
-		return 0;
+		return false;
 	}
 
 }
 
 function isLogged() {
-	return !empty($_SESSION["id"]);
+	return !empty($_SESSION["user_id"]);
 }
 
 function isPhone() {
@@ -31,12 +31,13 @@ function isPhone() {
 	}
 }
 
-function get_non_meeting_alert_list() {
+function get_non_meeting_alert_list($user_id) {
 	global $link;
 	$sql = "
 SELECT `id`, `name`, `last_meeting`, `alert_day`
 FROM `ichie`
-WHERE (`display_flag` = 1)
+WHERE (`user_id` = ${user_id}
+  AND (`display_flag` = 1)
   AND (`alert_day` != 0)
   AND (DATE_ADD(`last_meeting`, INTERVAL `alert_day` DAY) <= NOW())
 	";
@@ -50,12 +51,13 @@ WHERE (`display_flag` = 1)
 	return $non_meeting_alert_list;
 }
 
-function get_non_meeting_alert_count() {
+function get_non_meeting_alert_count($user_id) {
 	global $link;
 	$sql = "
 SELECT `id`
 FROM `ichie`
-WHERE (`display_flag` = 1) 
+WHERE (`user_id` = ${user_id}
+  AND (`display_flag` = 1)
   AND (`alert_day` != 0) 
   AND (DATE_ADD(`last_meeting`, INTERVAL `alert_day` DAY) <= NOW())
 	";
@@ -65,14 +67,15 @@ WHERE (`display_flag` = 1)
 	return $non_meeting_alert_count;
 }
 
-function get_friend_list($display_flag = false) {
+function get_friend_list($user_id, $display_flag = false) {
 	global $link;
 	$sql = "
 SELECT *, (DATEDIFF(NOW(), `last_meeting`) / `alert_day`) AS 'priority'
-FROM `ichie`";
+FROM `ichie`
+WHERE (`user_id` = ${user_id}) ";
 if (!$display_flag) {
 	$sql .= "
- WHERE `display_flag` != 0
+  AND (`display_flag` != 0)
 ";
 }
 	$sql .= "
@@ -104,21 +107,22 @@ function day_diff($date1, $date2) {
 	return $daydiff;
 }
 
-function add_friend($name, $last_meeting, $alert_day) {
+function add_friend($user_id, $name, $last_meeting, $alert_day) {
 	global $link;
-	$sql = " INSERT INTO `ichie` (`name`, `last_meeting`, `alert_day`) VALUES ('".$name."', '".$last_meeting."', $alert_day) ";
+	$sql = " INSERT INTO `ichie` (`name`, `last_meeting`, `alert_day`, `user_id`) VALUES ('".$name."', '".$last_meeting."', '".$alert_day."', '".$user_id."') ";
 	$sql = str_replace(array('\r\n','\n','\r'), '', $sql);
 	$sql = htmlspecialchars($sql);
 
 	return mysqli_query($link, $sql);
 }
 
-function get_friend_detail($friend_id) {
+function get_friend_detail($user_id, $friend_id) {
 	global $link;
 	$sql = "
 SELECT * , (DATEDIFF(NOW(), `last_meeting`) / `alert_day`) AS 'priority'
 FROM `ichie`
-WHERE id = ${friend_id}
+WHERE (`user_id` = ${user_id})
+  AND (id = ${friend_id})
 	";
 	$result = mysqli_query($link, $sql);
 
@@ -130,7 +134,7 @@ WHERE id = ${friend_id}
 	return $friend_detail_info;
 }
 
-function update_friend($friend_id, array $update_info) {
+function update_friend($user_id, $friend_id, array $update_info) {
 	global $link;
 
 	$sql = "
@@ -140,12 +144,13 @@ SET ";
 `last_meeting` = '" . $update_info["last_meeting" ] . "' "; }
 	if (isset($update_info["name"])) { $sql .= "
 , `name` = '" . $update_info["name" ] . "' "; }
-	if (isset($update_info["last_meeting"])) { $sql .= "
+	if (isset($update_info["alert_day"])) { $sql .= "
 , `alert_day` = '" . $update_info["alert_day" ] . "' "; }
 	if (isset($update_info["display_flag"])) { $sql .= "
 , `display_flag` = '" . $update_info["display_flag" ] . "' "; }
 	$sql .= "
-WHERE id = ${friend_id}
+WHERE (`user_id` = ${user_id})
+  AND (id = ${friend_id})
 	";
 
 	$result = mysqli_query($link, $sql);
