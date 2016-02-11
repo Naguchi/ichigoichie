@@ -11,7 +11,8 @@ WHERE `login_id` = '" . $login_id . "'
 	$count_row = mysqli_num_rows($result);
 
 	if ($count_row) {
-		$user_id = mysqli_fetch_row($result)["0"];
+		$user_info = mysqli_fetch_row($result);
+		$user_id = $user_info[0];
 		return $user_id;
 	} else {
 		return false;
@@ -36,7 +37,7 @@ function get_non_meeting_alert_list($user_id) {
 	$sql = "
 SELECT `id`, `name`, `last_meeting`, `alert_day`
 FROM `ichie`
-WHERE (`user_id` = ${user_id}
+WHERE (`user_id` = ${user_id})
   AND (`display_flag` = 1)
   AND (`alert_day` != 0)
   AND (DATE_ADD(`last_meeting`, INTERVAL `alert_day` DAY) <= NOW())
@@ -56,7 +57,7 @@ function get_non_meeting_alert_count($user_id) {
 	$sql = "
 SELECT `id`
 FROM `ichie`
-WHERE (`user_id` = ${user_id}
+WHERE (`user_id` = ${user_id})
   AND (`display_flag` = 1)
   AND (`alert_day` != 0) 
   AND (DATE_ADD(`last_meeting`, INTERVAL `alert_day` DAY) <= NOW())
