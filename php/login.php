@@ -1,7 +1,9 @@
 <?php
-if (!empty($post["login_id"]) && (!empty($post["login_password"]))) {
-	$login_id = $post["login_id"];
-	$login_password = $post["login_password"];
+
+$login_id = (isset($get["login_id"])) ? ($get["login_id"]) : ($post["login_id"]);
+$login_password = (isset($get["login_password"])) ? ($get["login_password"]) : ($post["login_password"]);
+
+if (!empty($login_id) && (!empty($login_password))) {
 	$login_password = md5($login_password);
 
 	$user_id = login_test($login_id, $login_password);
