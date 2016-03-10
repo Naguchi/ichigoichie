@@ -65,7 +65,7 @@
 <?php } ?>
 </section>
 
-<footer id="foot"><a href="./">indexの最後まで読み込んだよ!!!</a></footer>
+<footer id="foot"> </footer>
 
 </div><!-- wrap -->
 

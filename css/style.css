@@ -60,7 +60,9 @@ table, td, th {
 	text-align: center;
 	padding: 80px;
 
-	background: url("/ichigoichie/img/ichigo_head.png") left/contain;
+	background: url("/ichigoichie/img/bike.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .posCenter {
